@@ -101,3 +101,4 @@ src/
 ## Responsive Design
 
 Built with **mobile-first approach** using Bootstrap Grid & Flex utilities to ensure perfect display across all devices.
+
