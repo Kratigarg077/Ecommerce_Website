@@ -1,0 +1,59 @@
+body {
+  background: #fff;
+}
+/* header{
+  background-color: #018a99
+} */
+.site-content {
+  min-height: 70vh;
+  padding-top: 20px;
+}
+
+.nav-tabs .nav-link {
+  cursor: pointer;
+}
+
+/* small round toggle */
+.theme-toggle-btn {
+  width: 34px;
+  height: 34px;
+  border-radius: 50%;
+  border: none;
+  background: #f1f1f1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  box-shadow: 0 0 4px rgba(0,0,0,0.2);
+  transition: all 0.25s ease;
+}
+
+.theme-toggle-btn:hover {
+  background: #ddd;
+}
+
+/* Dark Mode */
+.dark-mode {
+  background-color: #111 !important;
+  color: #fff !important;
+}
+
+.dark-mode header {
+  background: #222 !important;
+}
+
+.dark-mode .card,
+.dark-mode .dropdown-menu {
+  background-color: #1d1d1d !important;
+  color: white;
+}
+
+.dark-mode a {
+  color: #fff !important;
+}
+
+.dark-mode input,
+.dark-mode .search-wrap-1 {
+  background: #222 !important;
+  color: #fff !important;
+}
