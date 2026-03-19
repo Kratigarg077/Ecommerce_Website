@@ -1,17 +1,13 @@
-import { useState } from "react";
+import { useContext } from "react";
+import { AppContext } from "../context/AppContext";
 import { FaTimes } from "@react-icons/all-files/fa/FaTimes";
 import { FaTrash } from "@react-icons/all-files/fa/FaTrash";
 import { useNavigate } from "react-router-dom";
-import { products } from "../data/products";
 
 export default function SidebarCart({ open, close }) {
   const navigate = useNavigate();
 
-  // demo cart (same logic as cart page)
-  const [cart, setCart] = useState([
-    { ...products[5], qty: 1 },
-    { ...products[3], qty: 1 }
-  ]);
+  const { cart, setCart } = useContext(AppContext);
 
   const removeItem = (id) => {
     setCart(cart.filter((item) => item.id !== id));

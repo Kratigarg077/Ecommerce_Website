@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
+import { useContext } from "react";
+import { AppContext } from "../context/AppContext";
 import { Link } from "react-router-dom";
-
 import { FaSearch } from "@react-icons/all-files/fa/FaSearch";
 import { FaHeart } from "@react-icons/all-files/fa/FaHeart";
 import { FaBars } from "@react-icons/all-files/fa/FaBars";
@@ -9,7 +10,7 @@ import { FaUser } from "@react-icons/all-files/fa/FaUser";
 import { FaSignOutAlt } from "@react-icons/all-files/fa/FaSignOutAlt";
 import TopBar from "./TopBar";
 
-import logoIcon from "../assets/images/logos/logo2.png";
+import logoIcon from "../assets/images/logos/logo1.png";
 import Breadcrumb from "./Breadcrumb";
 import SidebarCart from "./SidebarCart";
 
@@ -17,7 +18,7 @@ export default function Header() {
   const [showSearch, setShowSearch] = useState(false);
   const [loggedUser, setLoggedUser] = useState(null);
   const [cartOpen, setCartOpen] = useState(false);
-
+  const { cart, wishlist } = useContext(AppContext);
   useEffect(() => {
     const loadUser = () => {
       const data = sessionStorage.getItem("loggedUser");
@@ -120,8 +121,13 @@ export default function Header() {
                   )}
 
                   {/* WISHLIST */}
-                  <Link className="header-action-style" to="/wishlist">
+                  <Link className="header-action-style position-relative" to="/wishlist">
                     <FaHeart size={22} />
+                    {wishlist.length > 0 && (
+                      <span className="product-count">
+                        {wishlist.length}
+                      </span>
+                    )}
                   </Link>
 
                   {/* CART */}
@@ -130,7 +136,11 @@ export default function Header() {
                     onClick={() => setCartOpen(true)}
                   >
                     <FaShoppingBag size={22} />
-                    <span className="product-count">02</span>
+                    {cart.length > 0 && (
+                      <span className="product-count">
+                        {cart.length}
+                      </span>
+                    )}
                   </button>
 
                   <SidebarCart open={cartOpen} close={() => setCartOpen(false)} />

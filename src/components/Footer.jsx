@@ -29,8 +29,8 @@ export default function Footer() {
                   <h3 className="footer-title">Information</h3>
                   <ul>
                     <li><a href="/about">About Us</a></li>
-                    <li><a href="#">Privacy Policy</a></li>
-                    <li><a href="#">Terms & Conditions</a></li>
+                    <li><a href="/privacy-policy">Privacy Policy</a></li>
+                    <li><a href="/terms">Terms & Conditions</a></li>
                   </ul>
                 </div>
               </div>
@@ -51,13 +51,13 @@ export default function Footer() {
                 <div className="footer-widget footer-address mb-40">
                   <h3 className="footer-title">Get in touch</h3>
                   <ul>
-                    <li><span>Address:</span> Your address goes here</li>
-                    <li><span>Phone:</span> (012) 345 6789</li>
-                    <li><span>Email:</span> demo@example.com</li>
+                    <li><span>Address:</span> Sector 78 Noida, India</li>
+                    <li><span>Phone:</span> +91 9999999999</li>
+                    <li><span>Email:</span> support@email.com</li>
                   </ul>
 
                   <div className="open-time">
-                    <p>Open: <span>8:00 AM</span> - Close: <span>18:00 PM</span></p>
+                    <p>Open: <span>10:00 AM</span> - Close: <span>08:00 PM</span></p>
                     <p>Saturday - Sunday: Closed</p>
                   </div>
                 </div>

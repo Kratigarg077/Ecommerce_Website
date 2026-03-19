@@ -1,16 +1,12 @@
-import { useState } from "react";
+import { useContext, useState } from "react";
+import { AppContext } from "../context/AppContext";
 import { useNavigate } from "react-router-dom";
 import { FaTrash } from "@react-icons/all-files/fa/FaTrash";
-import { products } from "../data/products";
 
 export default function Cart() {
   const navigate = useNavigate();
 
-  const [cart, setCart] = useState([
-    { ...products[5], qty: 1 },
-    { ...products[3], qty: 1 },
-    { ...products[6], qty: 1 }
-  ]);
+  const { cart, setCart, wishlist, setWishlist } = useContext(AppContext);
 
   const [shipping, setShipping] = useState(120);
 
@@ -76,12 +72,12 @@ export default function Cart() {
                     <div className="d-inline-flex border">
                       <button
                         className="btn btn-sm"
-                        onClick={() => updateQty(item.id, "dec")}
+                        onClick={() => updateQty(item.id, -1)}
                       >−</button>
                       <span className="px-3 py-1">{item.qty}</span>
                       <button
                         className="btn btn-sm"
-                        onClick={() => updateQty(item.id, "inc")}
+                        onClick={() => updateQty(item.id, +1)}
                       >+</button>
                     </div>
                   </td>
@@ -91,6 +87,15 @@ export default function Cart() {
                   </td>
 
                   <td className="text-center">
+                    <button
+                      className="btn btn-sm btn-outline-dark"
+                      onClick={() => {
+                        setWishlist([...wishlist, item]);
+                        setCart(cart.filter(p => p.id !== item.id));
+                      }}
+                    >
+                      Move to Wishlist
+                    </button>
                     <button
                       className="btn text-danger"
                       onClick={() => removeItem(item.id)}

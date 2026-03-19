@@ -21,6 +21,8 @@ import MyAccount from "./pages/myaccount/MyAccount";
 import Logout from "./pages/auth/Logout";
 import Shop from "./pages/shop/Shop";
 import ProductDetails from "./pages/product/ProductDetails";
+import PrivacyPolicy from "./pages/PrivacyPolicy";
+import Terms from "./pages/Terms";
 
 // ----------------- MAIN LAYOUT -----------------
 function Layout() {
@@ -62,6 +64,8 @@ export default function Routing() {
         <Route path="/about" element={<About />} />
         <Route path="/contact" element={<Contact />} />
         <Route path="/blog" element={<Blog />} />
+        <Route path="/terms" element={<Terms />} />
+        <Route path="/privacy-policy" element={<PrivacyPolicy />} />
         <Route path="/my-account" element={<MyAccount />} /> 
       </Route>
 

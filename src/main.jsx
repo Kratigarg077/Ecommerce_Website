@@ -10,11 +10,14 @@ import "bootstrap/dist/js/bootstrap.bundle.min.js";
 
 // Template CSS (your HTML template)
 import "./assets/css/style.css";
+import AppProvider from './context/AppContext.jsx'
 
 createRoot(document.getElementById('root')).render(
   <StrictMode>
     <BrowserRouter>
-      <App />
+      <AppProvider>
+        <App />
+      </AppProvider>
     </BrowserRouter>
   </StrictMode>,
 )

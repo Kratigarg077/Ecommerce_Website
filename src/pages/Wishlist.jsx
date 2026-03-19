@@ -1,23 +1,34 @@
-import { useState } from "react";
+import { useContext } from "react";
+import { AppContext } from "../context/AppContext";
 import { useNavigate } from "react-router-dom";
-import { products } from "../data/products";
 
 import { FaTrash } from "@react-icons/all-files/fa/FaTrash";
 import { FaShoppingCart } from "@react-icons/all-files/fa/FaShoppingCart";
 
 export default function Wishlist() {
   const navigate = useNavigate();
-
-  // demo wishlist items (same pattern as cart)
-  const [wishlist, setWishlist] = useState([
-    products[5],
-    products[3],
-    products[6],
-  ]);
+  
+  const { wishlist, setWishlist, cart, setCart } = useContext(AppContext);
 
   const removeItem = (id) => {
     setWishlist((list) => list.filter((p) => p.id !== id));
   };
+
+  const addToCart = (item) => {
+  // add to cart
+  const exist = cart.find(p => p.id === item.id);
+
+  if (exist) {
+    setCart(cart.map(p =>
+      p.id === item.id ? { ...p, qty: p.qty + 1 } : p
+    ));
+  } else {
+    setCart([...cart, { ...item, qty: 1 }]);
+  }
+
+  // remove from wishlist
+  setWishlist(wishlist.filter(p => p.id !== item.id));
+};
 
   return (
     <div className="container py-5">
@@ -70,6 +81,7 @@ export default function Wishlist() {
                   <button
                     className="btn px-4 py-2 text-white"
                     style={{ background: "#FF8C00" }}
+                    onClick={() => addToCart(item)}
                   >
                     <FaShoppingCart className="me-2" />
                     Add to Cart

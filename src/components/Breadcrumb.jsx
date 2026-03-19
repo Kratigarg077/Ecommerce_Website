@@ -21,7 +21,9 @@ export default function Breadcrumb({ links = [] }) {
     "/wishlist": "Wishlist",
     "/about": "About",
     "/blog": "Blog",
-    "/my-account": "My Account"
+    "/my-account": "My Account",
+    "/privacy-policy": "Privacy Policy",
+    "/terms": "Terms & Conditions"
   };
 
   // Handle dynamic product route
